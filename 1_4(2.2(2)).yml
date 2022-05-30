@@ -1,0 +1,79 @@
+input: '([({[]()})])'
+blank: ' '
+start state: 1
+table:
+  1: 
+    (   : R
+    '[' : R
+    '{' : R
+    0   : R
+    1   : R
+    2   : R
+    )   : {write: 0, L: 2}
+    ']' : {write: 1, L: 3}
+    '}' : {write: 2, L: 4}
+    ' ' : {L: done001}
+  2:
+    )   : L
+    ']' : L
+    '}' : L
+    0   : L
+    1   : L
+    2   : L
+    '[' : {R: done002}
+    '{' : {R: done002}
+    (   : {write: 0, R: 1}
+    ' ' : {R: done02}
+  3:
+    )   : L
+    ']' : L
+    '}' : L
+    0   : L
+    1   : L
+    2   : L
+    (   : {R: done002}
+    '{' : {R: done002}
+    '[' : {write: 1, R: 1}
+    ' ' : {R: done02}
+  4:
+    )   : L
+    ']' : L
+    '}' : L
+    0   : L
+    1   : L
+    2   : L
+    (   : {R: done002}
+    '[' : {R: done002}
+    '{' : {write: 2, R: 1}
+    ' ' : {R: done02}
+  done001:
+    0   : {write: ' ', L}
+    1   : {write: ' ', L}
+    2   : {write: ' ', L}
+    (   : {L: done002}
+    '[' : {L: done002}
+    '{' : {L: done002}
+    ' ' : {write: 'T', R: done1}
+  done1:
+    ' ' : L
+  done002:
+    0   : L
+    1   : L
+    2   : L
+    (   : L
+    '[' : L
+    '{' : L
+    ' ' : {R: done02}
+  done02:
+    0   : {write: ' ', R}
+    1   : {write: ' ', R}
+    2   : {write: ' ', R}
+    (   : {write: ' ', R}
+    )   : {write: ' ', R}
+    '[' : {write: ' ', R}
+    ']' : {write: ' ', R}
+    '{' : {write: ' ', R}
+    '}' : {write: ' ', R}
+    ' ' : {write: 'F', L: done2}
+  done2:
+    ' ' : R
