@@ -1,0 +1,38 @@
+input: '22'
+blank: ' '
+start state: 1
+table:
+  1: 
+    ' ' : {L: done001}
+    0   :  R
+    1   : {R: 2}
+    2   : {R: 3}
+  2:
+    ' ' : {L: done001}
+    1   :  R
+    2   : {R: 3}
+    0   : {R: done002}
+  3:
+    ' ' : {L: done001}
+    2   :  R
+    0   : {R: done002}
+    1   : {R: done002}
+  done001:
+    0   : {write: ' ', L}
+    1   : {write: ' ', L}
+    2   : {write: ' ', L}
+    ' ' : {write: 'T', L: done1}
+  done1:
+    ' ' : R
+  done002:
+    0   : R
+    1   : R
+    2   : R
+    ' ' : {L: done02}
+  done02:
+    0   : {write: ' ', L}
+    1   : {write: ' ', L}
+    2   : {write: ' ', L}
+    ' ' : {write: 'F', L: done2}
+  done2:
+    ' ' : R
