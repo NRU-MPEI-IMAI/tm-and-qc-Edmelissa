@@ -1,0 +1,15 @@
+input: '11+11'
+blank: ' '
+start state: 1
+table:
+  1:
+    1 : R
+    + : {R: 2}
+  2:
+    1 : {write: +, L: 3}
+    ' ': {L: 4}
+  3:
+    + : {write: 1, R: 1}
+  4:
+    + : {write: ' ', L: done}
+  done:
