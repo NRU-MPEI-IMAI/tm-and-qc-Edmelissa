@@ -1,0 +1,134 @@
+\documentclass[a4paper, 12pt]{article}
+\usepackage[16pt]{extsizes}
+\usepackage{mathtext}
+\usepackage[T1,T2A]{fontenc}
+\usepackage[english,russian]{babel}
+\usepackage[left=12.7mm, top=12.7mm, right=12.7mm, bottom=12.7mm, nohead, footskip=5mm]{geometry} % настройки полей документа
+
+\usepackage{amsfonts}
+
+%для вставки рисунков
+\usepackage{graphicx}
+\graphicspath{ {./images/} }
+
+\usepackage[fleqn]{amsmath}
+
+\title{Домашняя работа №3}
+\author{А-13а-19 Самсонова Мария}
+
+\begin{document}
+
+\maketitle
+
+\section{Реализуйте машины Тьюринга, которые позволяют выполнять следующие операции:}
+\begin{enumerate}
+    \item Сложение двух унарных чисел 
+    \newline
+    Граф решения МТ
+    \newline
+    \includegraphics[scale=0.5]{1_1}
+    \newline
+    Проверка работоспобособности алгоритма
+    \newline
+    \begin{tabular}{|*{3}{c|}}
+       \hline
+       № & входная строка & выходная строка \\
+       \hline
+       1 & \includegraphics[scale=0.4]{1_1(1.1)} & \includegraphics[scale=0.4]{1_1(1.2)} \\ 
+       \hline
+       2 & \includegraphics[scale=0.4]{1_1(2.1)} & \includegraphics[scale=0.4]{1_1(2.2)} \\ 
+       \hline
+       3 & \includegraphics[scale=0.4]{1_1(3.1)} & \includegraphics[scale=0.4]{1_1(3.2)} \\
+       \hline
+    \end{tabular}
+    
+    \item Умножение унарных чисел 
+    \newline
+    Граф решения МТ
+    \newline
+    \includegraphics[scale=0.5]{1_2}
+    \newline
+    Проверка работоспобособности алгоритма
+    \newline
+    \begin{tabular}{|*{3}{c|}}
+       \hline
+       № & входная строка & выходная строка \\
+       \hline
+       1 & \includegraphics[scale=0.4]{1_2(1.1)} & \includegraphics[scale=0.4]{1_2(1.2)} \\ 
+       \hline
+       2 & \includegraphics[scale=0.4]{1_2(2.1)} & \includegraphics[scale=0.4]{1_2(2.2)} \\ 
+       \hline
+       3 & \includegraphics[scale=0.4]{1_2(3.1)} & \includegraphics[scale=0.4]{1_2(3.2)} \\
+       \hline
+    \end{tabular}
+    
+  \item Принадлежность к языку $L = \{ 0^n1^n2^n \}, n \ge 0$
+   \newline
+    Граф решения МТ
+    \newline
+    \includegraphics[scale=0.5]{1_3}
+    \newline
+    Проверка работоспобособности алгоритма
+    \newline
+    \begin{tabular}{|*{3}{c|}}
+       \hline
+       № & входная строка & выходная строка \\
+       \hline
+       1 & \includegraphics[scale=0.4]{1_3(1.1)} & \includegraphics[scale=0.4]{1_3(1.2)} \\ 
+       \hline
+       2 & \includegraphics[scale=0.4]{1_3(2.1)} & \includegraphics[scale=0.4]{1_3(2.2)} \\ 
+       \hline
+       3 & \includegraphics[scale=0.4]{1_3(3.1)} & \includegraphics[scale=0.4]{1_3(3.2)} \\
+       \hline
+       4 & \includegraphics[scale=0.4]{1_3(4.1)} & \includegraphics[scale=0.4]{1_3(4.2)} \\
+       \hline
+       5 & \includegraphics[scale=0.4]{1_3(5.1)} & \includegraphics[scale=0.4]{1_3(5.2)} \\
+       \hline
+    \end{tabular}
+  
+  \item Проверка соблюдения правильности скобок в строке (минимум 3 вида скобок) 
+   \newline
+    Граф решения МТ
+    \newline
+    \includegraphics[scale=0.5]{1_4}
+    \newline
+    Проверка работоспобособности алгоритма
+    \newline
+    \begin{tabular}{|*{3}{c|}}
+       \hline
+       № & входная строка & выходная строка \\
+       \hline
+       1 & \includegraphics[scale=0.4]{1_4(1.1)} & \includegraphics[scale=0.4]{1_4(1.2)} \\ 
+       \hline
+       2 & \includegraphics[scale=0.4]{1_4(2.1)} & \includegraphics[scale=0.4]{1_4(2.2)} \\ 
+       \hline
+       3 & \includegraphics[scale=0.4]{1_4(3.1)} & \includegraphics[scale=0.4]{1_4(3.2)} \\
+       \hline
+       4 & \includegraphics[scale=0.4]{1_4(4.1)} & \includegraphics[scale=0.4]{1_4(4.2)} \\
+       \hline
+    \end{tabular}
+  
+  \item Поиск минимального по длине слова в строке (слова состоят из символов 1 и 0 и разделены пробелом) 
+   \newline
+    Граф решения МТ
+    \newline
+    \includegraphics[scale=0.5]{1_5}
+    \newline
+    Проверка работоспобособности алгоритма
+    \newline
+    \begin{tabular}{|*{3}{c|}}
+       \hline
+       № & входная строка & выходная строка \\
+       \hline
+       1 & \includegraphics[scale=0.4]{1_5(1.1)} & \includegraphics[scale=0.4]{1_5(1.2)} \\ 
+       \hline
+       2 & \includegraphics[scale=0.4]{1_5(2.1)} & \includegraphics[scale=0.4]{1_5(2.2)} \\ 
+       \hline
+       3 & \includegraphics[scale=0.4]{1_5(3.1)} & \includegraphics[scale=0.4]{1_5(3.2)} \\
+       \hline
+       4 & \includegraphics[scale=0.4]{1_5(4.1)} & \includegraphics[scale=0.4]{1_5(4.2)} \\
+       \hline
+    \end{tabular}
+\end{enumerate}
+
+\end{document}
