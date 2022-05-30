@@ -1,0 +1,67 @@
+input: '01 1010 1 10 0'
+blank: ' '
+start state: 1
+table:
+  1:
+    0   : R
+    1   : R
+    ' ' : {write: 4, R: 2}
+  2:
+    4   : R
+    0   : {R: 3}
+    1   : {R: 3}
+    2   : {L: delfirst}
+    3   : {L: delfirst}
+    ' ' : {L: done}
+  3:
+    0   : R
+    1   : R
+    2   : R
+    3   : R
+    5   : {L: 4}
+    ' ' : {write: 5, L: 4}
+  4:
+    2   : L
+    3   : L
+    0   : {write: 2, L: 5}
+    1   : {write: 3, L: 5}
+  5:
+    0   : L
+    1   : L
+    4   : {L: 6}
+  6:
+    4   : L
+    2   : L
+    3   : L
+    0   : {write: 2, R: 7}
+    1   : {write: 3, R: 7}
+    ' ' : {R: first}
+  7:
+    2   : R
+    3   : R
+    4   : {R: 2}
+  first:
+    2   : {write: 0, R}
+    3   : {write: 1, R}
+    4   : {R: delsec}
+  delsec:
+    4   : R
+    0   : {write: 4, R}
+    1   : {write: 4, R}
+    2   : {write: 4, R}
+    3   : {write: 4, R}
+    5   : {write: 4, R: 3}
+  delfirst:
+    4   : {write: ' ', L}
+    0   : {write: ' ', L}
+    1   : {write: ' ', L}
+    2   : {write: ' ', L}
+    3   : {write: ' ', L}
+    ' ' : {R: second}
+  second:
+    ' ' : R
+    2   : {write: 0, R}
+    3   : {write: 1, R}
+    5   : {write: 4, R: 2}
+  done:
+    4   : {write: ' ', L}
