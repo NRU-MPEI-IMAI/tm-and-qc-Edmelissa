@@ -1,0 +1,42 @@
+input: '11x111'
+blank: ' '
+start state: 1
+table:
+  1:
+    1   : R
+    x   : R
+    ' ' : {write: 0, L: 2}
+  2:
+    1   : L
+    x   : L
+    ' ' : {R: 3}
+  3:
+    1   : {write: ' ', R: 4}
+    x   : {L: 10}
+  4:
+    1   : R
+    x   : R
+    0   : {L: 5}
+  5:
+    a   : L
+    1   : {write: a, R: 6}
+    x   : {R: 9}
+  6:
+    a   : R
+    0   : {R: 7}
+  7:
+    1   : R
+    ' ' : {write: 1, L: 8}
+  8:
+    1   : L
+    0   : {L: 5}
+  9:
+    a   : {write: 1, R}
+    0   : {L: 2}
+  10:
+    ' ' : R
+    x   : {write: ' ', R}
+    1   : {write: ' ', R}
+    0   : {write: ' ', R: done}
+    
+  done:
