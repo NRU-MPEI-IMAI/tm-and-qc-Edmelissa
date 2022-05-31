@@ -5,6 +5,7 @@
 \usepackage[english,russian]{babel}
 \usepackage[left=12.7mm, top=12.7mm, right=12.7mm, bottom=12.7mm, nohead, footskip=5mm]{geometry} % настройки полей документа
 
+\usepackage{listings}
 \usepackage{amsfonts}
 
 %для вставки рисунков
@@ -130,5 +131,65 @@
        \hline
     \end{tabular}
 \end{enumerate}
+
+\section {Квантовые вычисления}
+Дано $N$ кубитов ($1 \le N \le 8$) в нулевом состоянии $\Ket{0\dots0}$. Также дана некоторая последовательность битов, которое задаёт ненулевое базисное состояние размера $N$. Задача получить суперпозицию нулевого состояния и заданного.
+
+$$\Ket{S} = \frac{1}{\sqrt2}(\Ket{0\dots0} +\Ket{\psi})$$
+
+То есть требуется реализовать операцию, которая принимает на вход:
+
+\begin{enumerate}
+    \item Массив кубитов $q_s$
+    \item Массив битов $bits$ описывающих некоторое состояние $\Ket{\psi}$. Это массив имеет тот же самый размер, что и $qs$. Первый элемент этого массива равен $1$.
+\end{enumerate}
+
+\begin{lstlisting}
+namespace Quantum.HW3 
+{   
+    open Microsoft.Quantum.Canon;
+    open Microsoft.Quantum.Intrinsic;
+    open Microsoft.Quantum.Diagnostics;
+    open Microsoft.Quantum.Measurement;
+    
+    @EntryPoint()
+    operation SolveForTwoQubits() : Result[]
+    {
+        using (qubits = Qubit[1])
+        {
+            DumpMachine();
+            Solve(qubits);                 // invoke your existing Solve operation
+            DumpMachine();                 // outputs the state of your qubits
+            let results = MultiM(qubits);  // measure the qubits
+            ResetAll(qubits);              // reset the qubits to the initial state
+            return results;                // return the measured results
+        }
+    } 
+
+    operation Solve (qs : Qubit[]) : ()
+    {
+        body
+        {
+            for (q in qs)
+            {
+                if (Zero != M(q)) 
+                {
+                    X(q);
+			    }
+            }
+            H(qs[0]);
+
+            for (i in 1..Length(qs) - 1)
+            {
+                use q = Qubit();
+                if (Zero != M(q))
+                {
+                    CNOT(qs[0], qs[i]);
+                }
+            }
+	    }                
+    }  
+}
+\end{lstlisting}
 
 \end{document}
